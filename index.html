@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='index.css'>
+    <script src='index.js'></script>
+    <title>A Fair Approach to Redistricting</title>
+</head>
+<body>
+    <!-- <div id="header">Redistricting Florida and Virginia</div> -->
+    <div id="body">
+        <br>
+        <br>
+        <br>
+        <h3>A Fair Approach to Redistricting</h3>
+        <br>
+        <div> Andrey Grebenik, Dawit Kelile, Elizandro Padilla, Karis Park </div>
+        <div> College of Business and Technology, Seattle Pacific University </div>
+        <div> DAT 4500: Data and Society </div>
+        <div> Dr. Brain Gill  </div>
+        <div> June 3, 2026 </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class='title'><b>Abstract</b></div>
+        <div class='line'></div>
+        <div class='section'>
+            <span class='tab'></span>Historically, there have been many attempts to weaken and control voter power. Though certain attempts have now been outlawed, redistricting still provides a means for legislators and politicians to accomplish their own goals. Gerrymandering—manipulating electoral district lines to benefit one's own interests during the redistricting process—is one highly undemocratic way to control voting power. Currently, multiple states in the U.S. have jumped to redistrict their states to alter voter results for the mid-decade election, bringing the question of what it means to be a fair and democratic nation. To explore fairness in redistricting, we created three goals for redistricting: abide by all state and federal laws and legislature, create maps with proportional partisan favored districts to population, and respect communities of common interest by keeping them together. We used five metrics to evaluate the quality of our maps: ReADI, efficiency gap, competitiveness, compactness through Polsby-Popper, and population. Our results, evaluated through these metrics, accomplished all the goals created. Our first map, abiding by state and federal laws, scored better in population deviation, and compactness. We accomplished our second goal through creating maps with a lower efficiency gap and higher competitiveness. Our third goal was established by minimizing variance between ReADI percentiles in our maps, keeping people of communities of interest related to socioeconomic status together. The accomplishment of our goals defines three different ways that we can establish fairness in redistricting. Each goal has different strengths and weaknesses yet defining three maps display the different ways that redistricting fairness can be accomplished. Our work towards these three goals further explores what it means to consider fairness and democracy in the redistricting process.
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class='title'><b>Introduction</b></div>
+        <div class='line'></div>
+        <div class='section'>
+            <span class='tab'></span>Whether it was through grandfather's clauses, literacy tests, or blatant violence, various tactics have been used to control voting over the years in the United States. While these particular voter suppression methods are no longer in use, efforts to weaken voter power are still fully present today. One of the most targeted points in controlling voters is the redistricting process. Redistricting follows the decennial Census of the U.S. population, where states must recreate their district borders to account for any population changes. These borders determine the district that people will vote for state legislature and House representatives. Gerrymandering is the practice of manipulating these electoral district lines to benefit one's own interests during the redistricting process (Hill, Coleman, and Bassett, 2021).  
+        </div>
+        <div class='section'>
+            <span class='tab'></span>Gerrymandering suppresses the voices of voters by using strategies such as packing and cracking. Packing is a gerrymander strategy that crams all members of unfavored groups, racial or partisan, into a district to then allocate the districts around the packed one to the favored party (Li, 2021). While cracking, it diminishes a group’s power by splitting members into various districts to make them the minority. Both strategies have been used repeatedly to serve a particular political party, oppress certain racial groups, and uplift individual politicians, at the cost of many American votes. 
+        </div>
+        <div class='section'>
+            <span class='tab'></span>As mentioned earlier, the redistricting process used to happen only once every ten years after the census report. However, states have broken this cycle and are currently in a violent political and legal race to rearrange district maps to receive their desired partisan outcomes before the 2026 Midterm Election. It is during the 2026 Midterm Election where Americans vote for their desired House representatives, making these maps quintessential for both political parties. Following Texas’ initial move in 2025 to create more five more republican districts, eight more states have implemented new biased maps, with many other states still fighting to get their own gerrymandered maps into place.
+        </div>
+        <div class='subtitle'><b>The Current Study</b></div>
+        <div class='section'>
+            <span class='tab'></span>In the April 2026 Virginia ballot, an amendment was proposed to allow a mid-decade district to redraw to “restore fairness in the upcoming elections” (Virgina Department of Elections, 2026). This recent surge of gerrymandering in the United States posed the question of what it actually looks like to “restore fairness” in redistricting. We defined fairness in the redistricting process as redistricting in a way that does not tamper district outcomes for selfish interests. Fairness looks like prioritizing voters by giving them the primary voice in elections. To ensure fairness in the redistricting process, we will create district maps of the states of Virginia and Florida that follow three clear goals. Our first goal is to create a map that attempts to achieve fairness by abiding all current state and federal legislature and court rulings. Our second goal is to create a map that has a proportional number of partisan districts for the partisan population in each state, so that no party has a false advantage. The final goal is to create a district map that honors communities of common interest, defined by socioeconomic status, by keeping these groups together. 
+        </div>
+        <div class='title'><b>Methods</b></div>
+        <div class='line'></div>
+        <div class='subtitle'><b>Data</b></div>
+        <div class='section'>
+            <span class='tab'></span>The datasets and packages we used include the information from the 2020 decennial census via PL 94-171 enumeration, geospatial boundaries provided by the census through the tirgris package, the precinct-level VEST data for the 2020 general election, and finally the 2019-2023 ACS 5-year estimates. All of these datasets are used to provide us with the information needed to compose our three sets of maps.
+        </div>
+        
+        <div class='subtitle'><i><b>PL 94-171 Enumeration</b></i></div>
+        <div class='section'>
+            <span class='tab'></span>The PL 94-171 enumeration was accessed through the PL94171 package in R. The PL94171 package retrieves a summary file from the census bureau’s official FTP directory for the appropriate year and state (U.S. Census Bureau, 2020). The PL94-171 is an enumeration mandated by the US constitution based on the decennial census population count. We used one key metric that allows us to determine the ratio of data disaggregation defined by looking at block level by population per census block. To act in accordance with the “one-person-one-vote" principle, we also made use of the population metric to ensure relative population equality in our redistricting algorithm. 
+        </div>
+        
+        <div class='subtitle'><i><b>Tigris</b></i></div>
+        <div class='section'>
+            <span class='tab'></span>To create the geospatial boundaries for our districts, we used the tigris package in R. The tigris package retrieves a shape file from the Census Bureau’s official FTP directory for the specified year, in our case 2020, and state (U.S. Census Bureau, 2020).  The tigris package uses information from the US Census Bureau’s TIGER/Line database to make geometric information available for usage. We first used Census block level geometries to aggregate and disaggregate data from other geometric levels (specifically precinct and tract). Next, we used congressional district geometries to clip precinct level boundaries within the state borders to avoid unrealistic adjacencies across water.  
+        </div>
+
+        <div class='subtitle'><i><b>Voting and Election Science Team (VEST)</b></i></div>
+        <div class='section'>
+            <span class='tab'></span>The Voting and Election Science Team (VEST) data found on the Redistricting Data Hub (RDH). The VEST dataset holds precinct-level 2020 general election results for Florida and Virginia in the form of a geographic boundary file (shapefile). Because there is no localized source for a state’s precinct boundaries, RDH has aggregated the precinct geographies from a number of sources (Florida Department of State Division of Elections, 2026). Unfortunately, the VEST data for Virginia in 2020 did not receive a validation like Florida did, so it is unknown exactly what the source for the geometries and voting was from. However, referencing RDH’s FAQ on original source, it is likely that the data was retrieved from a collection partner such as the Secretary of State’s office, MIT Election Data and Science Lab (MEDSL), or Open Elections. Two metrics were used from the VEST data with the first being G20PREDBID and the second being G20PRERTRU. The G20PREDBID metric gives us the number of votes for the democratic candidate in the 2020 general election (Biden) per precinct. While the G20PRERTRU, which tells us the number of votes for the republican candidate in the 2020 general election (Trump) per precinct. The geometry of the precincts within the VEST data was used to construct a list of adjacencies for use in our redistricting algorithm and in determining the Polsby-Popper compactness score of our generated congressional districts.  
+        </div>
+        
+        <div class='subtitle'><i><b>American Community Survey (ACS) 5-Year Estimates</b></i></div>
+        <div class='section'>
+            <span class='tab'></span>To identify communities of common interest, the American Community Survey (ACS) 5-Year Estimates data was used. Four tract-level ACS estimates were accessed from the census from the years 2019-2023: poverty, education, income, and language. The ACS data comes from four directories (per state) from RDH. RDH retrieved ACS data through the U.S. Census’ API endpoint.
+        </div>
+        <div class='section'>
+            <span class='tab'></span>For poverty information, the Total Citizen Voting Age Population and Total CVAP (CVAP and TOT_CVAP23) were used with income in the past 12 months below the poverty line (BPV_CVAP23) to calculate the percentage of people living in poverty in a single precinct.   
+        </div>
+        <div class='section'>
+            <span class='tab'></span>To analyze education, we took the number of people with a bachelors, masters, doctorate, and professional school degree (BACH_DEG23, MAST_DEG23, DOCT_DEG23, PROF_DEG23), and the total population of people years 25 and over (POP_25OV23) to calculate the percentage of people in a precinct that have an education above a bachelor's degree.   
+        </div>
+        
+        <div class='section'>
+            <span class='tab'></span>For income we used multiple metrics that identified the number of households with yearly incomes in different numeric categories, ranging from less than $10,000 to over $200,000 (LESS_10K23, X10K_15K23, X15K_20K23, X20K_25K23, X25K_30K23, X30K_35K23, X35K_40K23, X40K_45K23, X45K_50K23, X50K_60K23, X60K_75K23, X75K_100K23, X100_125K23, X125_150K23, X150_200K23, X200K_MOR2). Because median household income is incompatible during disaggregation or aggregation, we used the mentioned income bracket counts to estimate median household income to create our SES maps.   
+        </div>
+
+        <div class='section'>
+            <span class='tab'></span>Last, the metrics SP_EN_LW23 and OT_EN_LW23 were used to tell us the number of people that Spanish and English less than “very well,” and speak other languages and speak English less than “very well.” We also used the Total population when considering language ACS data (TOT_POP23), to calculate the percentage of people not proficient in English.   
+        </div>
+
+        <div class='section'>
+            <span class='tab'></span>All the above metrics were used to evaluate a Reproducible Area Deprivation Index (ReADI) based on Stanford's ReADI (Stanford University, Socioeconomic Position Indices, 2026). ReADI is used as the key controlling metric for the third set of generated maps that are focused on grouping people by socioeconomic status. Details on how ReADI is calculated can be found in the section detailing our statistical methods.    
+        </div>
+
+        <div class='subtitle'><b>Statistical Methods</b></div>
+        <div class='subtitle'><i><b>Reproducible Area Deprivation Index (ReADI)</b></i></div>
+        <div class='section'>
+            <span class='tab'></span>To measure socio-economic status, we used the Reproducible Area Deprivation Index, or ReADI. ReADI is a score that measures how socioeconomically disadvantaged a neighborhood is based on factors of income, education, housing quality, employment, etc. ReADI determines these scores by combining all factors from the ACS into a ranking system of all block groups in deciles from 1 to 10. The ACS factors are first scaled depending on the indicators (such as income disparity), then rescaled based on the z-scores. Weights are then created for each indicator based on percentage of population that falls within the indicator. Last, a Factor Analysis Model is fitted on the indicators with weights, and the output is rescaled to a range from 0 to 100. A score closer to 100 indicates greater socioeconomic deprivation. We used ReADI over standard ADI, because ADI produces errors when scaling indicators for reproducibility.  
+        </div>
+        
+        <div class='subtitle'><i><b>Efficiency Gap</b></i></div>
+        <div class='section'>
+            <span class='tab'></span>One of the two ways we decide to measure ‘fairness’ is through the efficiency gap. The efficiency gap calculates the difference between “wasted votes” of two political parties (number of votes in excess of a winning party or the number of votes for the losing party), which is then divided by the total number of votes casted. The calculation itself is a percentage that determines the threshold for a district to be considered ‘fair,’ ensuring that differences between votes that both parties lose is minimized.  
+        </div>
+        
+        <div class='subtitle'><i><b>Competitiveness  </b></i></div>
+        <div class='section'>
+            <span class='tab'></span>The second way to measure ‘fairness,’ is through utilizing competitive districts. Since the whole point of gerrymandering is to create safe districts for parties, we decided to ensure a number of competitive districts so that the votes within a district are up to population votes. District competitiveness is determined by taking the number of votes favoring each party in each precinct and making the number of votes for each party near equal. 
+        </div>
+        
+        <div class='subtitle'><i><b>Compactness  </b></i></div>
+        <div class='section'>
+            <span class='tab'></span>Compactness is another measure we decide to consider in ensuring continuity of districts as required by state law. We use the Polsby-Popper score to measure this since it is the most common and accepted measure across states in the redistricting process (Belotti et al., 2023). The Polsby score measures a ratio between the area of a circle of the district to the area of another circle using the perimeter of the district. Since the score is a ratio, a score close to one is optimally compact while a score close to zero is not compact. In practice, a score between 0.2 to 0.3 are generally acceptable scores due to the reality of the shapes of states and districts. 
+        </div>
+        
+        <div class='subtitle'><i><b>Population </b></i></div>
+        <div class='section'>
+            <span class='tab'></span>Population is the required measurement from the Census to ensure people within a district have equal voting power. All states are required to use the Census to determine population of track and block levels to create districts and redistrict based on keeping population equal between districts. A deviation of 10% is acceptable when creating districts. 
+        </div>
+        
+        <div class='subtitle'><b>Pipeline</b></div>
+            <img src="img/pipes.png" class='map'>
+        <div class='section'>
+            <span class='tab'></span>Our analysis consists of five steps: data assembly/aggregation, data verification, adjacency generation, map generation, and map analysis. First, an R script was used to assemble all the data sources into one precinct-level data.csv file per state. The PL94171 summary for our state at the block level is aggregated to the precinct level via centroid overlay. Each ACS file for our state at the tract level undergoes population-weighted disaggregation to the block level and then centroid overlay aggregation to the precinct level. VEST data undergoes no transformations as it’s already at the precinct level. During this step we also calculate the ADI percentile per precinct.  
+        </div>
+        <div class='section'>
+            <span class='tab'></span>Second, because we have performed several spatial aggregation and disaggregation operations, it is very important to verify the integrity of our data before use. The validation strategy starts with aggregating all block level values up to the county level, then compares them against official Census county-level benchmarks. This approach will allow us to detect whether the degradation process was preserved. It also checks whether the errors are distributed evenly across the state or constructed in a specific region. A 10% error threshold is used as the benchmark considering standard practice. 
+        </div>
+        <div class='section'>
+            <span class='tab'></span>Third, after verifying our data is usable, we resolve the adjacencies between precinct geometries. This is resolved by buffering geometries to detect neighbors while pruning invalid connections. Any island geometries are bridged to the nearest precinct to ensure perfect contiguity. Each node in our adjacency graph represents a precinct, each edge represents an adjacency, and each edge-weight represents the shared perimeter between precincts. The graph representing these adjacencies is exported as a Compressed Sparse Row (CSR) file for faster processing in the next step.  
+        </div>
+        <div class='section'>
+            <span class='tab'></span>Fourth, using our data and CSR file, we start generating maps using our CUDA accelerated ReCom MCMC (Recombination Monte Carlo Markov Chain) engine. This engine utilizes parallel tempering to escape local minima and improve global state exploration. Our energy function combines population targets, polsby-popper compactness, partisan efficiency gap, competitiveness and socio-economic homogeneity via ReADI variance. This engine has launched a total of three times for each state with different configurations in order to generate maps that align with our goals. The top 100 maps for each goal are scrutinized and saved.
+        </div>
+        <div class='section'>
+            <span class='tab'></span>In a separate C++ script, we use SMC (Sequential Monte Carlo) to generate a large number of random maps for both states with the only constraint being population. These random maps will be used to analyze the output of our ReCom MCMC engine and the current redistricting plan. Finally, a script and application combination is used to summarize and analyze the results of our ReCom MCMC engine using our five key metrics. 
+        </div>
+
+        <div class='title'><b>Results</b></div>
+        <div class='line'></div>
+        <div class='section'>
+            <span class='tab'></span>Our algorithm was able to create maps that improved respective scores for each goal. We created six maps in total, each state receiving three maps for each goal. To establish an improved map for our law abidance map, we established a better map that would have a lower population deviation score and better Polsby-Popper compactness measure. For our second partisan proportionality map, we defined a successful map as one with a low efficiency gap, and higher competitiveness. For our last goal—keeping common socio-economic communities together—we defined success by a lower variance between ReADI percentiles throughout our map. We compared our maps to the actual current district map, and to other trial randomly generated maps. The maps that we selected exceeds other maps in respect to the metrics of their respective goal, while avoiding extreme geographically gerrymandered maps. 
+        </div>
+        <div class='subtitle'><b>Law Abidance Map</b></div>
+        <div class='section'>
+            <span class='tab'></span>These maps are focused on the goal of abiding by state and federal laws. The map that held the lowest population deviance score and better Polsby-Popper compactness core was selected for each state (see Map 1 and Map 2) 
+        </div>
+        <div class='subtitle'><b><i>Florida</i></b></div>
+        <div class='result'>
+            <img src="img/fl_fair.png" class='map'>
+            <div class='figdesc'>Map 1: Our proposed Floridia map that best aligns with laws.</div>
+            <div class='section'>
+                <span class='tab'></span>For the map that we chose for Florida, in Figure 1 you can compare the map that we created in blue, on a boxplot comparing various metric scores with the current map and other maps that we generated. In that visualization you can see that the Polsby-Popper scores for the map we created is closer to one than the other maps, meaning it is more compact. Our map generated is also much closer to zero percent than the random sample (see Table 1), meaning that our maps successfully meet the criteria we were attempting to meet for this goal.
+            </div>
+            <br>
+            <img src="img/fl_fair_stat.png" class='stat'>
+            <div class='figdesc'>
+                Figure 1: Boxplot of Polsby-Popper, efficiency gap, and margin of victory for random, current, and our proposed map for Floridia (where our proposed map is the best map that aligns with laws).
+            </div>
+            <br>
+            <table class="grid-table">
+                <thead>
+                    <tr><th></th><th>Current</th><th>Our map</th><th>Random sample</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Max population deviation</td><td>0%</td><td>0.354% </td><td>2.581% </td></tr>
+                    <tr><td>Mean Polsby-Popper</td><td>0.142 </td><td>0.178 </td><td>0.0883 </td></tr>
+                    <tr><td>Efficiency gap</td><td>16.912 </td><td>2.548 </td><td>-7.716 </td></tr>
+                    <tr><td>Democrat seats </td><td>9</td><td>13</td><td>11.591 </td></tr>
+                    <tr><td>Republican seats</td><td>19</td><td>15</td><td>16.408 </td></tr>
+                    <tr><td>Mean margin of victory</td><td>17.613% </td><td>17.689% </td><td>15.828% </td></tr>
+                </tbody>
+            </table>
+             <div class='figdesc'>
+                Table 1: Table of metrics values for random, current, and our proposed map for Floridia (where our proposed map is the best map that aligns with laws) 
+            </div>
+        </div>
+        <div class='subtitle'><b><i>Virginia</i></b></div>
+        <div class='result'>
+            <img src="img/va_fair.png" class='map'>
+            <div class='figdesc'>Map 2: Our proposed Virginia map that best aligns with laws</div>
+            <br>
+            <div class='section'>
+                <span class='tab'></span>For Virginia we used the same metrics to evaluate our results. Our Polsby-Popper compactness score being higher than both the current and random sampled maps (See Figure 2 and Table 2). Though it is difficult to compare the population deviation to the original map, due to the specification for each individual person, our population deviation score is still lower than our randomly sampled map selection.   
+            </div>
+            <br>
+            <img src="img/va_fair_stat.png" class='stat'>
+            <div class='figdesc'>
+                Figure 2: Boxplot of Polsby-Popper, efficiency gap, and margin of victory for random, current, and our proposed Virginia map (where our proposed map is the best map that aligns with laws). 
+            </div>
+            <br>
+            <table class="grid-table">
+                <thead>
+                    <tr><th></th><th>Current</th><th>Our map</th><th>Random sample</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Max population deviation</td><td>0%</td><td>0.514% </td><td>1.661% </td></tr>
+                    <tr><td>Mean Polsby-Popper</td><td>0.251 </td><td>0.283 </td><td>0.143 </td></tr>
+                    <tr><td>Efficiency gap</td><td>-1.581 </td><td>-0.597 </td><td>-5.363 </td></tr>
+                    <tr><td>Democrat seats </td><td>7</td><td>7</td><td>7.289</td></tr>
+                    <tr><td>Republican seats</td><td>4</td><td>4</td><td>3.710</td></tr>
+                    <tr><td>Mean margin of victory</td><td>25.579%</td><td>25.551%</td><td>23.244%</td></tr>
+                </tbody>
+            </table>
+            <div class='figdesc'>
+                Table 2: Table of metrics values for random, current, and our proposed Virginia map (where our proposed map is the best map that aligns with laws)
+            </div>
+        </div>
+        <div class='subtitle'><b>Proportional Partisan Map</b></div>
+        <div class='section'>
+            <span class='tab'></span>For our second goal, our attempt to create a map with proportional partisan representation relies on maximizing competitiveness and lowering our efficiency gap. Both of our maps were made to optimize off of these metrics, and we selected maps that best fit these criteria. 
+        </div>
+        <div class='subtitle'><b><i>Florida</i></b></div>
+        <div class='result'>
+            <img src="img/fl_part.png" class='map'>
+            <div class='figdesc'>Map 3: Our proposed Florida map that has the best partisan proportion.</div>
+            <div class='section'>
+                <span class='tab'></span>Our map for Florida has a much better efficiency gap score than the current map, with almost a score difference of almost 17 (See Table 3). We were also able to accomplish perfect competitiveness, with 14 seats for each party, while the current map is skewed with 19 Republican seats, and 9 Democrat seats (See Table 3). When evaluating by these metrics, our map is highly improved compared to the current district boundaries. 
+            </div>
+            <br>
+            <img src="img/fl_part_stat.png" class='stat'>
+            <div class='figdesc'>
+                Figure 3: Boxplot of Polsby-Popper, efficiency gap, and margin of victory for random, current, and our proposed Floridia map (where our proposed map that has the best partisan proportion). 
+            </div>
+            <br>
+            <table class="grid-table">
+                <thead>
+                    <tr><th></th><th>Current</th><th>Our map</th><th>Random sample</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Max population deviation</td><td>0%</td><td>0.518% </td><td>2.581% </td></tr>
+                    <tr><td>Mean Polsby-Popper</td><td>0.142 </td><td>0.146 </td><td>0.0883 </td></tr>
+                    <tr><td>Efficiency gap</td><td>16.912 </td><td>-0.000875 </td><td>-7.716 </td></tr>
+                    <tr><td>Democrat seats </td><td>9</td><td>14</td><td>11.591 </td></tr>
+                    <tr><td>Republican seats</td><td>19</td><td>14</td><td>16.408 </td></tr>
+                    <tr><td>Mean margin of victory</td><td>17.613% </td><td>14.485% </td><td>15.828% </td></tr>
+                </tbody>
+            </table>
+            <div class='figdesc'>
+                Figure 3: Boxplot of Polsby-Popper, efficiency gap, and margin of victory for random, current, and our proposed Virgina map (where our proposed map that has the best partisan proportion). 
+            </div>
+        </div>
+        <div class='subtitle'><b><i>Virginia</i></b></div>
+        <div class='result'>
+            <img src="img/va_part.png" class='map'>
+            <div class='figdesc'>Map 4: Our proposed Virginia map that has the best partisan proportion. </div>
+            <br>
+            <img src="img/va_part_stat.png" class='stat'>
+            <div class='figdesc'>
+                Figure 4: Boxplot of Polsby-Popper, efficiency gap, and margin of victory for random, current, and our proposed Virgina map (where our proposed map that has the best partisan proportion). 
+            </div>
+            <br>
+            <table class="grid-table">
+                <thead>
+                    <tr><th></th><th>Current</th><th>Our map</th><th>Random sample</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Max population deviation</td><td>0%</td><td>0.980772% </td><td>1.661% </td></tr>
+                    <tr><td>Mean Polsby-Popper</td><td>0.251 </td><td>0.307284 </td><td>0.143 </td></tr>
+                    <tr><td>Efficiency gap</td><td>-1.581 </td><td>-0.838757 </td><td>-5.363 </td></tr>
+                    <tr><td>Democrat seats </td><td>7</td><td>7</td><td>7.289</td></tr>
+                    <tr><td>Republican seats</td><td>4</td><td>4</td><td>3.710</td></tr>
+                    <tr><td>Mean margin of victory</td><td>25.579%</td><td>25.2426% </td><td>23.244%</td></tr>
+                </tbody>
+            </table>
+            <div class='figdesc'>
+                Table 4: Table of metrics values for random, current, and our proposed Virginia map (where our proposed map has the best partisan proportion) 
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class='subtitle'><b>Maintaining Communities Map </b></div>
+        <div class='subtitle'><b><i>Florida</i></b></div>
+        <div class='result'>
+            <img src="img/fl_adi.png" class='map'>
+            <div class='figdesc'>Map 5: Our proposed Floridia map that best maintains communities of common interest. </div>
+            <br>
+            <img src="img/fl_adi_stat.png" class='stat'>
+            <div class='figdesc'>
+                Figure 5: Boxplot of Polsby-Popper, efficiency gap, margin of victory, and ADI scores for random, current, and our proposed Floridia map (where our proposed map that best maintains communities of common interest).
+            </div>
+            <br>
+            <table class="grid-table">
+                <thead>
+                    <tr><th></th><th>Current</th><th>Our map</th><th>Random sample</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Max population deviation</td><td>0%</td><td>0.463% </td><td>2.581%</td></tr>
+                    <tr><td>Mean Polsby-Popper</td><td>0.142 </td><td>0.170 </td><td>0.0883</td></tr>
+                    <tr><td>Efficiency gap</td><td>16.912 </td><td>7.686 </td><td>-7.716</td></tr>
+                    <tr><td>Democrat seats </td><td>9</td><td>12</td><td>11.591</td></tr>
+                    <tr><td>Republican seats</td><td>19</td><td>16</td><td>16.408</td></tr>
+                    <tr><td>Mean margin of victory</td><td>17.302% </td><td>17.689%</td><td>15.828%</td></tr>
+                    <tr><td>Deprived districts</td><td>0</td><td>1</td><td>0.183 </td></tr>
+                    <tr><td>Affluent districts</td><td>0</td><td>1</td><td>0.00086 </td></tr>
+                </tbody>
+            </table>
+            <div class='figdesc'>
+                Table 5: Table of metrics values for random, current, and our proposed Floridia map (where our proposed map that best maintains communities of common interest). 
+            </div>
+        </div>
+        <div class='subtitle'><b><i>Virginia</i></b></div>
+        <div class='result'>
+            <img src="img/va_adi.png" class='map'>
+            <div class='figdesc'>Map 6: Our proposed Virginia map that best maintains communities of common interest. </div>
+            <br>
+            <img src="img/va_adi_stat.png" class='stat'>
+            <div class='figdesc'>
+                Figure 6: Boxplot of Polsby-Popper, efficiency gap, margin of victory, and ADI scores for random, current, and our proposed Virginia map (where our proposed map best maintains communities of common interest). 
+            </div>
+            <br>
+            <table class="grid-table">
+                <thead>
+                    <tr><th></th><th>Current</th><th>Our map</th><th>Random sample</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Max population deviation</td><td>0%</td><td>0.286% </td><td>1.661% </td></tr>
+                    <tr><td>Mean Polsby-Popper</td><td>0.251 </td><td>0.348 </td><td>0.143 </td></tr>
+                    <tr><td>Efficiency gap</td><td>-1.581 </td><td>-2.468 </td><td>-5.363 </td></tr>
+                    <tr><td>Democrat seats</td><td>7</td><td>7</td><td>7.289</td></tr>
+                    <tr><td>Republican seats</td><td>4</td><td>4</td><td>3.710</td></tr>
+                    <tr><td>Mean margin of victory</td><td>25.579%</td><td>25.551%</td><td>23.244%</td></tr>
+                    <tr><td>Deprived districts</td><td>1</td><td>1</td><td>0.562</td></tr>
+                    <tr><td>Affluent districts</td><td>3</td><td>3</td><td>3.0091</td></tr>
+                </tbody>
+            </table>
+            <div class='figdesc'>
+                Table 6: Table of metrics values for random, current, and our proposed Virginia map (where our proposed map that best maintains communities of common interest).
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class='title'><b>Discussion</b></div>
+        <div class='line'></div>
+        <div class='section'>
+            <span class='tab'></span>Through our algorithm, we were able to fulfill all three of our fair redistricting goals of creating maps that obey laws, have proportional partisan lean, and maintain communities of common interests. Our maps showed improvements from the current district maps in both Florida and Virginia regarding while also being improvements over randomly generated maps while utilizing the five metrics that we chose.  
+        </div>
+        <div class='section'>
+            <span class='tab'></span>The maps for our first goal provide a model for one approach to creating fair district maps. In Virginia’s constitution, compactness is a required criteria for redistricting efforts, however, Virginia and many other states have struggled to define what is compactness (Yancey, 2026). Even in states that require compact and contiguous districts, how compact the districts must be legally abiding has been crudely defined. This has given legislators and the courts much leeway in how tightly they uphold this criterion, allowing more room to create biased or partial maps. In our map creation, our use of the Polsby-Popper score has provided a target score regarding compactness of districts, which could be applied to the creation of more fair district maps in the future. Legally, a population deviation of up to 10% in permissible across districts. However, the smaller the level of deviation, the more equal people’s votes are (Fryer et al., 2007), therefore our map having a lower deviation percentage, improves the level of equality for voters. When laws and criteria are established, redistricting fairly should look like striving to follow these regulations as best as possible to prioritize the voices of the people.  
+        </div>
+        <div class='section'>
+            <span class='tab'></span>Gerrymandering has commonly packed or cracked the unfavored groups to minimize their power (Li, 2021). To create maps that oppose these methods for our second goal, we made districts that maximize competitiveness. In maximizing competitiveness, the outcome of the district is not up to the legislators to define, but up to the popular vote. This is ultimately working on creating a fairer map, as it protects the unbiased democratic process by allowing voters to control the partisan outcomes. Because our map also has a lower efficiency gap, we have equalized the level of representation that each person has with their vote. This establishes more equality for voters in both of our states compared to the real maps currently in place.  
+        </div>
+        <div class='section'>
+            <span class='tab'></span>When groups with a common interest or similar issues are split up, it can be hard for them to get their needs met in the government (Hill, 2021). House representatives may ignore minority voter’s opinions or needs, especially if they are low income. Grouping these underserved people together can give them power to have their voices heard with a representative serving that particular district (All About Redistricting, 2021). Through the minimization of ReADI variance, we have effectively grouped populations with similar SES levels, so that their needs can be prioritized and heard.  
+        </div>
+        <div class='section'>
+            <span class='tab'></span>We did encounter a few limitations within our work, with the greatest limitation being our dependency on Florida and Virginia. Because our pipeline is made up of such a broad collection of scripts, it would be difficult to generalize this algorithm onto other states. Our method itself also has a few limitations, as the engine we implemented is highly iterative and time-consuming. This is largely due to our pipeline’s focus on our specific ReCom MCMC engine, making our map production method not very sustainable for large scale projects. The last limitation of this project is the limited capacity to explore different metrics and goals in improving fairness. Several techniques were omitted specifically because they are not compatible with our engine. There are many different measures and approaches to creating unbiased and just maps, however, many more people need to be exploring and implementing these approaches to find something that fits the needs of the population in a state.  
+        </div>
+        <div class='section'>
+            <span class='tab'></span>As mentioned before, these three goals provide very different approaches to how to prioritize fairness. Each of the goals have different strengths and weaknesses but give us a larger picture of what it means to produce unbiased districts to honor the vote of each and every person. To accomplish more fair and democratic means in this redistricting process, it is important for legislators and others involved in creating these maps to explore different ways to allow for the voices of American people to be heard. This is how we can preserve our democracy.  
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>
