@@ -58,13 +58,16 @@ body {
 }
 
 .stat {
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
     background-color: white;
 }
 
 .result {
     max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .figdesc {
@@ -79,4 +82,8 @@ body {
 .ref {
     max-width: 800px;
     padding: 5px;
+}
+
+.stats {
+    max-width: 600px;
 }
