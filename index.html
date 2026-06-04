@@ -144,11 +144,11 @@
         <div class='title'><b>Results</b></div>
         <div class='line'></div>
         <div class='section'>
-            <span class='tab'></span>Our algorithm was able to create maps that improved respective scores for each goal. We created six maps in total, each state receiving three maps for each goal. To establish an improved map for our law abidance map, we established a better map that would have a lower population deviation score and better Polsby-Popper compactness measure. For our second partisan proportionality map, we defined a successful map as one with a low efficiency gap, and higher competitiveness. For our last goal—keeping common socio-economic communities together—we defined success by a lower variance between ReADI percentiles throughout our map. We compared our maps to the actual current district map, and to other trial randomly generated maps. The maps that we selected exceeds other maps in respect to the metrics of their respective goal, while avoiding extreme geographically gerrymandered maps. 
+            <span class='tab'></span>Our algorithm was mostly able to create maps that improved respective scores for each goal. We created six maps in total, each state receiving three maps for each goal. To establish an improved map for our law abidance map, we established a better map that would have a lower population deviation score and better Polsby-Popper compactness measure. For our second partisan proportionality map, we defined a successful map as one with a low efficiency gap, and higher competitiveness. For our last goal—keeping common socio-economic communities together—we defined success by a lower variance between ReADI percentiles throughout our map. We compared our maps to the actual current district map, and to other trial randomly generated maps. The maps that we selected exceeds other maps in respect to the metrics of their respective goal, while avoiding extreme geographically gerrymandered maps. 
         </div>
         <div class='subtitle'><b>Law Abidance Map</b></div>
         <div class='section'>
-            <span class='tab'></span>These maps are focused on the goal of abiding by state and federal laws. The map that held the lowest population deviance score and better Polsby-Popper compactness core was selected for each state (see Map 1 and Map 2) 
+            <span class='tab'></span>These maps are focused on the goal of abiding by state and federal laws. The map that held the lowest population deviance score and better Polsby-Popper compactness core was selected for each state (see Map 1 and Map 2).
         </div>
         <div class='subtitle'><b><i>Florida</i></b></div>
         <div class='result'>
@@ -249,6 +249,9 @@
         <div class='result'>
             <img src="img/va_part.png" class='map'>
             <div class='figdesc'>Map 4: Our proposed Virginia map that has the best partisan proportion. </div>
+            <div class='section'>
+                <span class='tab'></span>Our map selected for Virginia does not actually differ from the current map in number of seats, however, it does hold a better efficiency gap than the current map, as our efficiency gap is closer to zero (See Table 4). The difficulties in equalizing the number of seats largely comes from the mostly concentrated population of Democratic voters in the state of Virginia.   
+            </div>
             <br>
             <img src="img/va_part_stat.png" class='stat'>
             <div class='figdesc'>
@@ -275,10 +278,16 @@
         <br>
         <br>
         <div class='subtitle'><b>Maintaining Communities Map </b></div>
+        <div class='section'>
+            <span class='tab'></span>To analyze our success in maintaining communities of common interest, we will use the level of variance and number of “affluent” and “deprived” districts through ReADI. The ReADI metric will help us to establish the context of those communities and allow us to group them together.
+        </div>
         <div class='subtitle'><b><i>Florida</i></b></div>
         <div class='result'>
             <img src="img/fl_adi.png" class='map'>
             <div class='figdesc'>Map 5: Our proposed Floridia map that best maintains communities of common interest. </div>
+            <div class='section'>
+                <span class='tab'></span>We chose our Florida map due to its number of “affluent” and “deprived” districts (View Table 5). Our generated map holds one of each district, while the current map holds none of these communities together, and our randomly generated maps very uncommonly held these communities together.
+            </div>
             <br>
             <img src="img/fl_adi_stat.png" class='stat'>
             <div class='figdesc'>
@@ -308,6 +317,9 @@
         <div class='result'>
             <img src="img/va_adi.png" class='map'>
             <div class='figdesc'>Map 6: Our proposed Virginia map that best maintains communities of common interest. </div>
+            <div class='section'>
+                <span class='tab'></span>For Virginia, we were not able to create a map that exceeds the current map regarding this goal. The number of “affluent” and “deprived” districts are consistent with the current map (See Table 6). Our map is about equal to the current map when evaluating by our metrics, as we have slightly improved compactness, but with a slightly lowered the efficiency gap. While our map was not technically more successful in meeting this goal than the current map, it greatly exceeds our other random attempts.  
+            </div>
             <br>
             <img src="img/va_adi_stat.png" class='stat'>
             <div class='figdesc'>
@@ -342,20 +354,122 @@
             <span class='tab'></span>Through our algorithm, we were able to fulfill all three of our fair redistricting goals of creating maps that obey laws, have proportional partisan lean, and maintain communities of common interests. Our maps showed improvements from the current district maps in both Florida and Virginia regarding while also being improvements over randomly generated maps while utilizing the five metrics that we chose.  
         </div>
         <div class='section'>
-            <span class='tab'></span>The maps for our first goal provide a model for one approach to creating fair district maps. In Virginia’s constitution, compactness is a required criteria for redistricting efforts, however, Virginia and many other states have struggled to define what is compactness (Yancey, 2026). Even in states that require compact and contiguous districts, how compact the districts must be legally abiding has been crudely defined. This has given legislators and the courts much leeway in how tightly they uphold this criterion, allowing more room to create biased or partial maps. In our map creation, our use of the Polsby-Popper score has provided a target score regarding compactness of districts, which could be applied to the creation of more fair district maps in the future. Legally, a population deviation of up to 10% in permissible across districts. However, the smaller the level of deviation, the more equal people’s votes are (Fryer et al., 2007), therefore our map having a lower deviation percentage, improves the level of equality for voters. When laws and criteria are established, redistricting fairly should look like striving to follow these regulations as best as possible to prioritize the voices of the people.  
+            <span class='tab'></span>The maps for our first goal provide a model for one approach to creating fair district maps. In Virginia’s constitution, compactness is a required criteria for redistricting efforts, however, Virginia and many other states have struggled to define what compactness looks like (Yancey, 2026). Even in states that require compact and contiguous districts, how compact the districts must be legally abiding has been crudely defined. This has given legislators and the courts much leeway in how tightly they uphold this criterion, allowing more room to create biased or partial maps. In our map creation, our use of the Polsby-Popper score has provided a target score regarding compactness of districts, which could be applied to the creation of more fair district maps in the future. Legally, a population deviation of up to 10% in permissible across districts. However, the smaller the level of deviation, the more equal people’s votes are (Fryer et al., 2007), therefore our map having a lower deviation percentage, improves the level of equality for voters. When laws and criteria are established, redistricting fairly should look like striving to follow these regulations as best as possible to prioritize the voices of the people.
         </div>
         <div class='section'>
-            <span class='tab'></span>Gerrymandering has commonly packed or cracked the unfavored groups to minimize their power (Li, 2021). To create maps that oppose these methods for our second goal, we made districts that maximize competitiveness. In maximizing competitiveness, the outcome of the district is not up to the legislators to define, but up to the popular vote. This is ultimately working on creating a fairer map, as it protects the unbiased democratic process by allowing voters to control the partisan outcomes. Because our map also has a lower efficiency gap, we have equalized the level of representation that each person has with their vote. This establishes more equality for voters in both of our states compared to the real maps currently in place.  
+            <span class='tab'></span>Gerrymandering has commonly packed or cracked the unfavored groups to minimize their power (Li, 2021). To create maps that oppose these methods for our second goal, we effectively made districts that maximize competitiveness. In maximizing competitiveness, the outcome of the district is not up to the legislators to define, but up to the popular vote. This is ultimately working on creating a fairer map, as it protects the unbiased democratic process by allowing voters to control the partisan outcomes. Because our map also has a lower efficiency gap, we have equalized the level of representation that each person has with their vote. This establishes more equality for voters in both of our states compared to the real maps currently in place.  
         </div>
         <div class='section'>
-            <span class='tab'></span>When groups with a common interest or similar issues are split up, it can be hard for them to get their needs met in the government (Hill, 2021). House representatives may ignore minority voter’s opinions or needs, especially if they are low income. Grouping these underserved people together can give them power to have their voices heard with a representative serving that particular district (All About Redistricting, 2021). Through the minimization of ReADI variance, we have effectively grouped populations with similar SES levels, so that their needs can be prioritized and heard.  
+            <span class='tab'></span>When groups with a common interest or similar issues are split up, it can be hard for them to get their needs met in the government (Hill, 2021). House representatives may ignore minority voter’s opinions or needs, especially if they are low income. Grouping these underserved people together can give them power to have their voices heard with a representative serving that particular district (All About Redistricting, 2021). Through the minimization of ReADI variance, we have effectively grouped populations in Florida with similar SES levels, so that their needs can be prioritized and heard. In Virginia, we were unable to create a map that exceeded the current map in regard to this goal. This was largely due to the highly stable ReADI distribution within the state, and because the differences in ReADI scores largely correlated with more urban areas, which resulted in very extreme gerrymandering. So while we potentially might have been able to create a map that more closely grouped communities of common SES together, it would have come at the compromise of compactness and other fairness metrics. 
         </div>
         <div class='section'>
             <span class='tab'></span>We did encounter a few limitations within our work, with the greatest limitation being our dependency on Florida and Virginia. Because our pipeline is made up of such a broad collection of scripts, it would be difficult to generalize this algorithm onto other states. Our method itself also has a few limitations, as the engine we implemented is highly iterative and time-consuming. This is largely due to our pipeline’s focus on our specific ReCom MCMC engine, making our map production method not very sustainable for large scale projects. The last limitation of this project is the limited capacity to explore different metrics and goals in improving fairness. Several techniques were omitted specifically because they are not compatible with our engine. There are many different measures and approaches to creating unbiased and just maps, however, many more people need to be exploring and implementing these approaches to find something that fits the needs of the population in a state.  
         </div>
         <div class='section'>
-            <span class='tab'></span>As mentioned before, these three goals provide very different approaches to how to prioritize fairness. Each of the goals have different strengths and weaknesses but give us a larger picture of what it means to produce unbiased districts to honor the vote of each and every person. To accomplish more fair and democratic means in this redistricting process, it is important for legislators and others involved in creating these maps to explore different ways to allow for the voices of American people to be heard. This is how we can preserve our democracy.  
+            <span class='tab'></span>As mentioned before, these three goals provide very different approaches to how to prioritize fairness. Each of the goals have different strengths and weaknesses but give us a larger picture of what it means to produce unbiased districts to honor the vote of each and every person. To accomplish more fair and democratic means in this redistricting process, it is important for legislators and others involved in creating these maps to explore different ways to allow for the voices of American people to be heard. This is how we can preserve our democracy. 
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class='title'><b>References</b></div>
+        <div class='line'></div>
+        <div class='refs'>
+            <div class='ref'>
+                All About Redistricting. (2021). Rules of redistricting: Communities of interest [Fact sheet]. https://redistricting.lls.edu/wp-content/uploads/Basics-English6.pdf\ 
+            </div>
+            <div class='ref'>Baker v. Carr, 369 U.S. 186 (1962). https://supreme.justia.com/cases/federal/us/369/186/ 
+            </div>
+            <div class='ref'>
+                Belotti, P., Buchanan, A., & Ezazipour, S. (2023). Political districting to optimize the Polsby-Popper compactness score with application to voting rights. Optimization Online. https://optimization-online.org/wp-content/uploads/2023/05/Political_Districting_to_Optimize_Polsby_Popper_Compactness_OO_style.pdf 
+            </div>
+            <div class='ref'>
+                Brennan Center for Justice. (2017, July 3). What is redistricting and why is it important? https://www.brennancenter.org/our-work/analysis-opinion/what-redistricting-and-why-it-important 
+            </div>
+            <div class='ref'>
+                Brennan Center for Justice. (2026, April 8). Gerrymandering explained. https://www.brennancenter.org/our-work/research-reports/gerrymandering-explained 
+            </div>
+            <div class='ref'>
+                Fisher, Z. (n.d.). Measuring compactness. https://fisherzachary.github.io/public/r-output.html 
+            </div>
+            <div class='ref'>
+                Florida Legislature. (1968). Constitution of the State of Florida. https://www.leg.state.fl.us/statutes/index.cfm?submenu=3 
+            </div>
+            <div class='ref'>
+                Fryer, R. G., Jr., & Holden, R. T. (2007). Measuring the compactness of political districting plans (NBER Working Paper No. 13456). National Bureau of Economic Research. https://doi.org/10.3386/w13456 
+            </div>
+            <div class='ref'>
+                Franke, M. (2017, July 7). Computing Bayes factors. Bayes, Pragmatics, Evolution Etc. https://michael-franke.github.io/statistics/modeling/2017/07/07/BF_computation.html 
+            </div>
+            <div class='ref'>
+                Guest, O., Kanayet, F. J., & Love, B. C. (2019). Gerrymandering and computational redistricting. Journal of Computational Social Science, 2, 119–128. https://doi.org/10.1007/s42001-019-00053-9 
+            </div>
+            <div class='ref'>
+                Harvard Civil Rights–Civil Liberties Law Review. (2017, March 9). Race and the architecture of voting districts: Bethune-Hill v. Virginia State Board of Elections. https://journals.law.harvard.edu/crcl/race-and-the-architecture-of-voting-districts-bethune-hill-v-virginia-state-board-of-elections/ 
+            </div>
+            <div class='ref'>
+                Hill, D., Coleman, M., & Bassett, E. (2021). Disenfranchisement and suppression of Black voters in the United States. Ballard Brief. https://ballardbrief.byu.edu/issue-briefs/disenfranchisement-and-suppression-of-black-voters-in-the-united-states 
+            </div>
+            <div class='ref'>
+                Index of /Geo/TIGER/TIGER2020. (n.d.). U.S. Census Bureau. https://www2.census.gov/geo/tiger/TIGER2020/ 
+            </div>
+            <div class='ref'>
+                Index of /programs-surveys/decennial/2020/data/01-Redistricting_File--PL_94-171/Pennsylvania. (n.d.). U.S. Census Bureau. https://www2.census.gov/programs-surveys/decennial/2020/data/01-Redistricting_File--PL_94-171/Pennsylvania/ 
+            </div>
+            <div class='ref'>
+                Jones, M. (2018, June 8). Packing, cracking and the art of gerrymandering around Milwaukee: Mapping the outlines of representation in Wisconsin's legislative districts. University of Wisconsin Applied Population Laboratory. https://apl.wisc.edu/shared/tad/packing-cracking 
+            </div>
+            <div class='ref'>
+                Kincannon, L., Rackey, J. D., & Thorning, M. (2025, August 8). What to know about redistricting and gerrymandering. Bipartisan Policy Center. https://bipartisanpolicy.org/explainer/redistricting-and-gerrymandering-what-to-know 
+            </div>
+            <div class='ref'>
+                Lindsay, J. M. (2026, May 4). Gerrymandering, the Supreme Court, and the 2026 midterm elections. Council on Foreign Relations. https://www.cfr.org/articles/gerrymandering-the-supreme-court-and-the-2026-midterm-elections 
+            </div>
+            <div class='ref'>
+                National Conference of State Legislatures. (n.d.). Changing the maps: Tracking mid-decade redistricting. https://www.ncsl.org/redistricting-and-census/changing-the-maps-tracking-mid-decade-redistricting 
+            </div>
+            <div class='ref'>
+                Northern Virginia Regional Commission. (2024). Median household income overall. NOVA Region Dashboard. https://www.novaregiondashboard.com/median-household-income 
+            </div>
+            <div class='ref'>
+                Precinct-level election results. (n.d.). Florida Department of State. https://dos.fl.gov/elections/data-statistics/elections-data/precinct-level-election-results/ 
+            </div>
+            <div class='ref'>
+                Rural Health Information Hub. (2024). Map of median household income, 2024 [Data visualization]. https://www.ruralhealthinfo.org/charts/58 
+            </div>
+            <div class='ref'>
+                Southern Poverty Law Center. (n.d.). Understanding voter suppression in today's election process. Learning for Justice. https://www.splcenter.org/learning-for-justice/understanding-voter-suppression-in-todays-election-process 
+            </div>
+            <div class='ref'>
+                U.S. Constitution amend. XIV. (1868). https://constitution.congress.gov/constitution/amendment-14 
+            </div>
+            <div class='ref'>
+                U.S. Constitution amend. XV. (1870). https://constitution.congress.gov/constitution/amendment-15 
+            </div>
+            <div class='ref'>
+                U.S. National Archives and Records Administration. (2022, February 8). Civil Rights Act (1964). National Archives. https://www.archives.gov/milestone-documents/civil-rights-act 
+            </div>
+            <div class='ref'>
+                Vedantam, S. (2018, May 1). In gerrymandered districts, constituents likely to lose economic security. NPR. https://www.npr.org/2018/05/01/607303602/in-gerrymandered-districts-constituents-likely-to-lose-economic-security 
+            </div>
+            <div class='ref'>
+                Virginia Department of Elections. (2026). Proposed amendment for April 2026 special election. https://www.elections.virginia.gov/election-law/proposed-amendment-for-april-2026-special-election/ 
+            </div>
+            <div class='ref'>
+                Virginia Division of Legislative Automated Systems. (2026, April 1). Constitution of Virginia. https://law.lis.virginia.gov/constitution 
+            </div>
+            <div class='ref'>
+                Yancey, D. (2026, April 17). Virginia's constitution requires “compact” districts. Courts have balked at defining compactness. Cardinal News. https://cardinalnews.org/2026/04/17/virginias-constitution-requires-compact-districts-courts-have-balked-at-defining-compactness/ 
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
     <div id="footer"></div>
 </body>

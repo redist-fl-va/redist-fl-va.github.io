@@ -71,3 +71,12 @@ body {
     font-size: 12px;
     margin-top: -7px;
 }
+
+.refs {
+    max-width: 800px;
+}
+
+.ref {
+    max-width: 800px;
+    padding: 5px;
+}
